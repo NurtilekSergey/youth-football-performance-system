@@ -1,0 +1,36 @@
+# Secrets and local config (never commit real values; use config/*.example)
+.env
+.env.*
+!.env.example
+config/*.local.*
+*.pem
+*.key
+secrets/
+
+# Personal / player data (minors' data must never be committed)
+data/real/
+data/raw/
+*.sqlite
+*.sqlite3
+*.db
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+dist/
+build/
+.next/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
