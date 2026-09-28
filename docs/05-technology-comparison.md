@@ -18,9 +18,9 @@ before the decision is final.
 ## D1. Server platform
 | Alternative | K1 | K2 | K3 | K4 | K5 | K6 | Weighted | Notes |
 |---|---|---|---|---|---|---|---|---|
-| **A. Python + FastAPI** | 5 | 4 | 4 | 5 | 4 | 4 | **66** | Pydantic validation, auto-generated OpenAPI, rich data libraries (pandas) for KPI maths |
-| B. Java + Spring Boot | 3 | 5 | 3 | 4 | 5 | 3 | 56 | Mature, strong typing/security; heavier setup; slower iteration for data logic |
-| C. Node.js (TypeScript) + NestJS | 3 | 4 | 4 | 4 | 4 | 4 | 58 | Same language as frontend; weaker data-processing ecosystem |
+| **A. Python + FastAPI** | 5 | 4 | 4 | 5 | 4 | 4 | **65** | Pydantic validation, auto-generated OpenAPI, rich data libraries (pandas) for KPI maths |
+| B. Java + Spring Boot | 3 | 5 | 3 | 4 | 5 | 3 | 57 | Mature, strong typing/security; heavier setup; slower iteration for data logic |
+| C. Node.js (TypeScript) + NestJS | 3 | 4 | 4 | 4 | 4 | 4 | 57 | Same language as frontend; weaker data-processing ecosystem |
 
 Weighted = sum(weight x score). **Proposed: A (FastAPI).** Risk: less enforced structure than Spring/Nest - mitigate with layered modules and tests.
 
@@ -28,16 +28,16 @@ Weighted = sum(weight x score). **Proposed: A (FastAPI).** Risk: less enforced s
 | Alternative | K1 | K2 | K3 | K4 | K5 | K6 | Weighted | Notes |
 |---|---|---|---|---|---|---|---|---|
 | **A. PostgreSQL** | 4 | 5 | 4 | 4 | 4 | 4 | **63** | Relational integrity, constraints, JSON columns for flexible metrics, window functions for trends |
-| B. MongoDB | 3 | 3 | 4 | 3 | 3 | 3 | 49 | Flexible schema, but player/team/test relations and consistency matter more here |
-| C. SQLite | 3 | 3 | 5 | 4 | 2 | 5 | 51 | Excellent for local prototypes/tests; weaker for multi-user concurrent access |
+| B. MongoDB | 3 | 3 | 4 | 3 | 3 | 3 | 48 | Flexible schema, but player/team/test relations and consistency matter more here |
+| C. SQLite | 3 | 3 | 5 | 4 | 2 | 5 | 55 | Excellent for local prototypes/tests; weaker for multi-user concurrent access |
 
 **Proposed: A (PostgreSQL)**; SQLite allowed for unit tests.
 
 ## D3. Method of component interaction (client <-> backend)
 | Alternative | K1 | K2 | K3 | K4 | K5 | K6 | Weighted | Notes |
 |---|---|---|---|---|---|---|---|---|
-| **A. REST/JSON over HTTPS (OpenAPI)** | 4 | 4 | 5 | 5 | 4 | 5 | **70** | Simple, tool support, contract-first via [api/openapi.yaml](../api/openapi.yaml) |
-| B. GraphQL | 4 | 4 | 3 | 4 | 3 | 3 | 54 | Flexible queries; extra complexity for a small, well-known set of resources |
+| **A. REST/JSON over HTTPS (OpenAPI)** | 4 | 4 | 5 | 5 | 4 | 5 | **67** | Simple, tool support, contract-first via [api/openapi.yaml](../api/openapi.yaml) |
+| B. GraphQL | 4 | 4 | 3 | 4 | 3 | 3 | 53 | Flexible queries; extra complexity for a small, well-known set of resources |
 | C. gRPC | 3 | 3 | 2 | 4 | 4 | 3 | 46 | Efficient binary RPC; poor fit for browser clients without a proxy |
 
 **Proposed: A (REST/JSON).**
