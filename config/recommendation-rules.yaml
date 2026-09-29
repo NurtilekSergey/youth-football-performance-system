@@ -1,0 +1,77 @@
+# Draft recommendation rules v0.1 - hypotheses for coach/supervisor review (see docs/domain/kpi-catalogue.md)
+# Not medical advice. Thresholds marked placeholder are NOT validated.
+version: 0.1
+status: draft
+rules:
+  - id: R-01
+    name: Speed gap
+    kpi: K-SPR30
+    condition: {metric: z_score_cohort, operator: "<=", value: -1}
+    min_observations: 3
+    recommendation: Consider an acceleration/speed development block for this player.
+    rationale: "30 m sprint z-score {value} vs cohort {cohort} (threshold {threshold})."
+    threshold_status: placeholder
+  - id: R-02
+    name: Agility gap
+    kpi: K-AGI
+    condition: {metric: z_score_cohort, operator: "<=", value: -1}
+    min_observations: 3
+    recommendation: Consider agility / change-of-direction work.
+    rationale: "Agility z-score {value} vs cohort {cohort} (threshold {threshold})."
+    threshold_status: placeholder
+  - id: R-03
+    name: Power gap
+    kpi: K-CMJ
+    condition: {metric: z_score_cohort, operator: "<=", value: -1}
+    min_observations: 3
+    recommendation: Consider lower-limb power work.
+    rationale: "Jump z-score {value} vs cohort {cohort} (threshold {threshold})."
+    threshold_status: placeholder
+  - id: R-04
+    name: Endurance gap
+    kpi: K-END
+    condition: {metric: z_score_cohort, operator: "<=", value: -1}
+    min_observations: 3
+    recommendation: Consider an aerobic / intermittent endurance block.
+    rationale: "Endurance z-score {value} vs cohort {cohort} (threshold {threshold})."
+    threshold_status: placeholder
+  - id: R-05
+    name: Load spike
+    kpi: K-WLOAD
+    condition: {metric: ratio_vs_prev_4_weeks, operator: ">", value: 1.5}
+    min_observations: 4
+    recommendation: Review planned load; consider reducing volume or intensity for the coming week.
+    rationale: "Weekly load is {value} x the mean of the previous 4 weeks (threshold {threshold})."
+    threshold_status: placeholder
+  - id: R-06
+    name: Low wellness trend
+    kpi: K-WELL
+    condition: {metric: below_own_mean_sd_consecutive, operator: ">", value: 1, consecutive: 2}
+    min_observations: 4
+    recommendation: Consider a recovery-focused session and a conversation with the player.
+    rationale: "Wellness {value} SD below the player's own 4-week mean on 2 consecutive entries."
+    threshold_status: placeholder
+  - id: R-07
+    name: Low attendance
+    kpi: K-ATT
+    condition: {metric: percent_4_weeks, operator: "<", value: 70}
+    min_observations: 4
+    recommendation: Check reasons for absence (injury, school, motivation).
+    rationale: "Attendance {value}% over 4 weeks (threshold {threshold}%)."
+    threshold_status: placeholder
+  - id: R-08
+    name: Maturity caution
+    kpi: MATURITY
+    condition: {metric: maturity_band, operator: "==", value: circa_phv}
+    min_observations: 1
+    recommendation: Interpret test changes cautiously; emphasise technique and coordination in feedback.
+    rationale: "Player is in the circa-PHV maturity band; results are strongly affected by growth."
+    threshold_status: needs_supervisor_review
+  - id: R-09
+    name: Insufficient data
+    kpi: ANY
+    condition: {metric: observations, operator: "<", value: 3}
+    min_observations: 0
+    recommendation: Insufficient data - no recommendation is generated for this KPI.
+    rationale: "Only {value} observations available; at least 3 are required."
+    threshold_status: design_decision
