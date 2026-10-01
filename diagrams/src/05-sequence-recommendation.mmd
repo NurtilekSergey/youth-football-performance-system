@@ -1,0 +1,19 @@
+sequenceDiagram
+  actor Coach
+  participant UI as Web client
+  participant API as Backend API
+  participant KPI as KPI engine
+  participant REC as Recommendation engine
+  participant DB as PostgreSQL
+  Coach->>UI: Open player profile
+  UI->>API: GET /players/{id}/recommendations
+  API->>DB: Load player context, results, sessions
+  API->>KPI: Compute KPIs, z-scores, trends
+  KPI-->>API: KPI values
+  API->>REC: Evaluate active rule set on KPI values
+  REC-->>API: Recommendations + rule id, inputs, rationale
+  API->>DB: Store recommendations (rule-set version)
+  API-->>UI: Recommendations with explanations
+  Coach->>UI: Accept / modify / reject
+  UI->>API: POST /recommendations/{id}/decision
+  API->>DB: Store decision

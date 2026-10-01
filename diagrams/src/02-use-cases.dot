@@ -1,0 +1,30 @@
+// UML-style use case diagram (Graphviz). Render: dot -Tsvg 02-use-cases.dot -o ../exports/02-use-cases.svg
+digraph UC {
+  rankdir=LR; splines=true; nodesep=0.25; ranksep=1.6;
+  node [fontname="Helvetica", fontsize=11];
+  edge [arrowhead=none, color="#555555"];
+  node [shape=box, style="rounded,filled", fillcolor="#e8f0fe", color="#4a6fa5"];
+  Admin [label="Administrator"]; Coach [label="Coach"]; Analyst [label="Analyst /\nmethodologist"];
+  subgraph cluster_sys {
+    label="Youth Football Performance Monitoring System"; fontname="Helvetica-Bold"; style=rounded; color="#999999";
+    node [shape=ellipse, style=filled, fillcolor="#fffbe6", color="#b59b00"];
+    UC1 [label="UC-01 Sign in\n(all roles)"];
+    UC2 [label="UC-02 Manage teams\nand players"];
+    UC3 [label="UC-03 Record field tests"];
+    UC4 [label="UC-04 Record session load\nand attendance"];
+    UC5 [label="UC-05 Record wellness /\nmatch data"];
+    UC6 [label="UC-06 Import CSV data"];
+    UC7 [label="UC-07 View player\ntrends and KPIs"];
+    UC8 [label="UC-08 View team report"];
+    UC9 [label="UC-09 Get recommendations\nwith explanation"];
+    UC10 [label="UC-10 Accept / modify /\nreject recommendation"];
+    UC11 [label="UC-11 Configure KPI\nnorms and rules"];
+    UC12 [label="UC-12 Export report"];
+  }
+  Admin -> UC2; Admin -> UC1;
+  Coach -> UC1; Coach -> UC3; Coach -> UC4; Coach -> UC5; Coach -> UC6; Coach -> UC7; Coach -> UC9; Coach -> UC10; Coach -> UC12;
+  Analyst -> UC1; Analyst -> UC7; Analyst -> UC8; Analyst -> UC11;
+  edge [arrowhead=open, style=dashed, fontname="Helvetica", fontsize=9];
+  UC9 -> UC7 [label="<<include>>"];
+  UC10 -> UC9 [label="<<extend>>"];
+}

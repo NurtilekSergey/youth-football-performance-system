@@ -1,0 +1,16 @@
+flowchart LR
+  coach(["Coach"])
+  analyst(["Analyst / methodologist"])
+  admin(["Academy administrator"])
+  parent(["Player / parent<br/>(optional, read-only)"])
+  sys["Youth Football Performance<br/>Monitoring and Recommendation System<br/>(web application + API)"]
+  wear[/"Wearable / GPS export<br/>(CSV files)"/]
+  hub[/"KFF Digital Football Hub / EasyCoach<br/>(future, out of scope)"/]
+  mail[/"E-mail service<br/>(optional notifications)"/]
+  coach -- "records tests, sessions, wellness;<br/>reads trends and recommendations" --> sys
+  analyst -- "configures KPI norms and rules;<br/>reviews cohort reports" --> sys
+  admin -- "manages teams, players, users" --> sys
+  parent -. "views progress report" .-> sys
+  wear -- "CSV import" --> sys
+  sys -. "export / import-friendly design" .-> hub
+  sys -- "notifications" --> mail

@@ -1,0 +1,26 @@
+flowchart TB
+  subgraph Client["Web client (React + TypeScript, responsive)"]
+    V1["Data entry views"]
+    V2["Player / team dashboards"]
+    V3["Recommendation view"]
+    V4["Admin / rules configuration"]
+  end
+  subgraph Backend["Backend API (FastAPI) - draft"]
+    AUTH["Auth and RBAC"]
+    PT["Players and teams"]
+    MET["Metrics: tests, sessions, wellness, matches"]
+    IMP["CSV import and validation"]
+    KPI["KPI engine<br/>(norms, z-scores, trends)"]
+    REC["Recommendation engine<br/>(rule evaluation + explanation)"]
+    REP["Reports and export"]
+  end
+  DB[("PostgreSQL")]
+  RULES[/"Versioned rules and norms<br/>config/recommendation-rules.yaml"/]
+  Client -- "REST / JSON (OpenAPI)" --> AUTH
+  AUTH --> PT & MET & IMP & REP
+  IMP --> MET
+  MET --> KPI
+  KPI --> REC
+  REC --> REP
+  PT & MET & KPI & REC --> DB
+  REC -. "loads" .-> RULES

@@ -1,0 +1,29 @@
+erDiagram
+  USER ||--o{ TEAM_COACH : "is"
+  TEAM ||--o{ TEAM_COACH : "has"
+  TEAM ||--o{ PLAYER : "contains"
+  PLAYER ||--o{ ANTHROPOMETRY : "has"
+  PLAYER ||--o{ TEST_RESULT : "has"
+  PLAYER ||--o{ SESSION_ENTRY : "takes part"
+  PLAYER ||--o{ WELLNESS : "reports"
+  PLAYER ||--o{ MATCH_RECORD : "plays"
+  SESSION ||--o{ SESSION_ENTRY : "includes"
+  TEAM ||--o{ SESSION : "trains"
+  RULE_SET ||--o{ RULE : "contains"
+  PLAYER ||--o{ RECOMMENDATION : "receives"
+  RULE ||--o{ RECOMMENDATION : "produces"
+  RECOMMENDATION ||--o| DECISION : "gets"
+  USER ||--o{ DECISION : "makes"
+  USER { uuid id string email string role string password_hash }
+  TEAM { uuid id string name string age_group string season }
+  PLAYER { uuid id string pseudonym date birth_date string position bool consent }
+  ANTHROPOMETRY { uuid id date measured_on float height_cm float weight_kg float sitting_height_cm string maturity_band }
+  TEST_RESULT { uuid id string kpi_id float value date tested_on string method bool flagged }
+  SESSION { uuid id date held_on int duration_min string type }
+  SESSION_ENTRY { uuid id bool attended int rpe float load_au }
+  WELLNESS { uuid id date on_date int sleep int fatigue int mood int soreness }
+  MATCH_RECORD { uuid id date played_on int minutes int tech_rating }
+  RULE_SET { uuid id string version string status }
+  RULE { string id string kpi_id string condition string text }
+  RECOMMENDATION { uuid id datetime created_at string inputs_json string rationale }
+  DECISION { uuid id string outcome string comment datetime decided_at }
