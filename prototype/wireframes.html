@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Low-fidelity prototype - synthetic data only</title>
+<style>
+ body{font-family:system-ui,sans-serif;margin:0;background:#f4f5f7;color:#222}
+ header{background:#1f3a5f;color:#fff;padding:12px 16px} header small{opacity:.8}
+ nav{display:flex;gap:8px;padding:12px 16px;flex-wrap:wrap} nav button{padding:8px 12px;border:1px solid #1f3a5f;background:#fff;border-radius:6px;cursor:pointer}
+ nav button.on{background:#1f3a5f;color:#fff}
+ main{padding:0 16px 24px;max-width:960px} section{display:none;background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px} section.on{display:block}
+ table{border-collapse:collapse;width:100%} td,th{border-bottom:1px solid #eee;padding:6px 8px;text-align:left}
+ .card{border-left:4px solid #e0a100;background:#fffbea;padding:10px 12px;margin:10px 0;border-radius:4px}
+ .bar{height:10px;background:#dde;border-radius:5px;position:relative} .bar i{position:absolute;top:-3px;width:4px;height:16px;background:#1f3a5f}
+ input,select{padding:6px;margin:2px 0} .note{font-size:.85rem;color:#555}
+</style></head><body>
+<header><b>Youth Football Performance Monitoring</b> <small>- wireframes v0.1, synthetic data (not real players)</small></header>
+<nav id="nav"></nav>
+<main>
+<section id="s1"><h2>S1. Team dashboard (UC-08)</h2><p class="note">Team U14 - last 4 weeks</p>
+<table><tr><th>Player</th><th>Attendance</th><th>Weekly load</th><th>Wellness</th><th>Alerts</th></tr>
+<tr><td>P-001</td><td>92%</td><td>1.1x</td><td>4.1</td><td>-</td></tr>
+<tr><td>P-017</td><td>88%</td><td>1.6x</td><td>3.2</td><td>R-05 load spike</td></tr>
+<tr><td>P-023</td><td>64%</td><td>0.8x</td><td>3.9</td><td>R-07 attendance</td></tr></table></section>
+<section id="s2"><h2>S2. Record session (UC-04)</h2>
+<p>Team <select><option>U14</option></select> Date <input type="date"> Duration <input type="number" value="75" style="width:70px"> min</p>
+<table><tr><th>Player</th><th>Attended</th><th>RPE (0-10)</th></tr>
+<tr><td>P-001</td><td><input type="checkbox" checked></td><td><input type="number" min="0" max="10" value="6" style="width:60px"></td></tr>
+<tr><td>P-017</td><td><input type="checkbox" checked></td><td><input type="number" min="0" max="10" value="8" style="width:60px"></td></tr></table>
+<p><button>Save session</button> <span class="note">Load = RPE x duration is computed automatically.</span></p></section>
+<section id="s3"><h2>S3. Record field test (UC-03)</h2>
+<p>Player <select><option>P-017</option></select> Test <select><option>30 m sprint (s)</option><option>CMJ (cm)</option></select> Value <input type="number" step="0.01" value="5.12"> Method <select><option>Timing gates</option><option>Stopwatch</option></select></p>
+<p><button>Save</button> <span class="note">Values outside plausible range are rejected/flagged.</span></p></section>
+<section id="s4"><h2>S4. Player profile and KPIs (UC-07)</h2><p><b>P-017</b>, U14, maturity band: circa-PHV</p>
+<table><tr><th>KPI</th><th>Latest</th><th>Cohort z</th><th>Position vs cohort</th></tr>
+<tr><td>30 m sprint</td><td>5.12 s</td><td>-1.3</td><td><div class="bar"><i style="left:18%"></i></div></td></tr>
+<tr><td>CMJ</td><td>31 cm</td><td>+0.2</td><td><div class="bar"><i style="left:55%"></i></div></td></tr></table></section>
+<section id="s5"><h2>S5. Recommendations with explanation (UC-09, UC-10)</h2>
+<div class="card"><b>R-01 Speed gap</b> - Consider an acceleration/speed development block.<br><span class="note">Why: 30 m sprint z = -1.3 vs cohort U14 (threshold -1), 4 observations, rule set v0.1.</span><br><button>Accept</button> <button>Modify</button> <button>Reject</button> <input placeholder="Comment"></div>
+<div class="card"><b>R-08 Maturity caution</b> - Interpret test changes cautiously (circa-PHV).<br><span class="note">Why: maturity band circa-PHV.</span></div>
+<p class="note">Decision-support only: does not replace a coach or medical specialist.</p></section>
+<section id="s6"><h2>S6. CSV import report (UC-06)</h2><p>File: tests_u14.csv - 100 rows: <b>95 imported</b>, <b>5 rejected</b></p>
+<table><tr><th>Row</th><th>Reason</th></tr><tr><td>12</td><td>30 m sprint 9.80 s outside plausible range</td></tr><tr><td>47</td><td>Unknown player ID</td></tr></table></section>
+</main>
+<script>
+const names=["Team dashboard","Record session","Record test","Player profile","Recommendations","CSV import"];
+const nav=document.getElementById('nav');
+names.forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>show(i+1);nav.appendChild(b)});
+function show(k){document.querySelectorAll('section').forEach((s,i)=>s.classList.toggle('on',i+1===k));[...nav.children].forEach((b,i)=>b.classList.toggle('on',i+1===k))}
+show(1);
+</script></body></html>
