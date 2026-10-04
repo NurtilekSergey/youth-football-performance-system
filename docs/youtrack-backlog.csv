@@ -1,0 +1,28 @@
+id,title,assignee,priority,deadline,status,acceptance_criteria,branch
+DIP-1,"Repository structure, .gitignore, contribution rules",Aidyn Zhubanyshev,High,2026-10-23,Done,"Repo has structure, .gitignore, CONTRIBUTING, config example",DIP-1-repository-structure-.gitignore-contribution
+DIP-2,Project proposal and scope,Sergey Nurtilek,High,2026-10-23,Done,"Proposal covers problem, users, aim, objectives, outcomes, scope",DIP-2-project-proposal-and-scope
+DIP-3,"Evidence of relevance: assumption register, interview guide",Sergey Nurtilek,High,2026-10-23,Done,Register + guide in repo (interviews themselves: DIP-16),DIP-3-evidence-of-relevance:-assumption
+DIP-4,"Literature review (>=12 sources, >=8 scientific)",Sergey Nurtilek,High,2026-10-23,Done,"15 sources, analysis table, gap analysis",DIP-4-literature-review->=12-sources
+DIP-5,"Existing system comparison (3-5 systems, 6-10 criteria)",Sergey Nurtilek,High,2026-10-23,Done,5 systems x 8 criteria with sources,DIP-5-existing-system-comparison-3-5
+DIP-6,"Technology comparison (>=3 decisions, 2-3 alternatives)",Aidyn Zhubanyshev,High,2026-10-23,Done,"5 decisions with criteria, ADR-0001/0002",DIP-6-technology-comparison->=3-decisions
+DIP-7,Requirements specification with acceptance criteria,Sergey Nurtilek,High,2026-10-23,Done,FR/NFR with priority and measurable AC,DIP-7-requirements-specification-with-acceptance
+DIP-8,KPI catalogue and draft rules,Sergey Nurtilek,High,2026-10-23,Done,"Catalogue + rules YAML, thresholds flagged placeholder",DIP-8-kpi-catalogue-and-draft
+DIP-9,"Architecture diagrams (context, use case, component) with sources",Aidyn Zhubanyshev,High,2026-10-23,Done,Editable sources + exports,DIP-9-architecture-diagrams-context-use
+DIP-11,UX prototype and scenarios,Aidyn Zhubanyshev,Medium,2026-10-23,Done,Clickable wireframes + scenario table,DIP-11-ux-prototype-and-scenarios
+DIP-12,API contract draft (OpenAPI),Aidyn Zhubanyshev,Medium,2026-10-23,Done,Valid OpenAPI 3 with examples,DIP-12-api-contract-draft-openapi
+DIP-13,Verification and evaluation plan + automated deliverable tests,Sergey Nurtilek,High,2026-10-23,Done,Plan with baselines and metrics; pytest passes,DIP-13-verification-and-evaluation-plan
+DIP-14,"Project management: roles, milestones, risks, YouTrack backlog",Aidyn Zhubanyshev,High,2026-10-23,Done,Doc + backlog CSV in repo,DIP-14-project-management:-roles-milestones
+DIP-15,Supervisor review of pre-defense-1 deliverables and feedback log,Sergey Nurtilek,High,2026-10-24,To do,Written feedback recorded in docs/11 with response to each comment,DIP-15-supervisor-review-of-pre-defense-1
+DIP-16,Hold 3-5 discussions with coaches/methodologists; record notes,Sergey Nurtilek,High,2026-11-07,To do,3-5 notes in docs/evidence/interviews; requirements updated,DIP-16-hold-3-5-discussions-with
+DIP-17,Repeat literature search in Scopus/WoS/PubMed; read full texts; complete S2 authors,Sergey Nurtilek,Medium,2026-11-14,To do,Search log in docs; citations verified,DIP-17-repeat-literature-search-in
+DIP-18,Verify 'n/s' cells of system comparison via demos/trials,Sergey Nurtilek,Medium,2026-11-14,To do,No n/s cell left unverified or each justified,DIP-18-verify-'n-s'-cells
+DIP-19,Deployment diagram and refined component diagram,Aidyn Zhubanyshev,Medium,2026-11-14,To do,Diagrams updated after interviews,DIP-19-deployment-diagram-and-refined
+DIP-20,Revise prototype after coach walkthrough,Aidyn Zhubanyshev,Medium,2026-11-21,To do,Changes logged; findings in docs/08,DIP-20-revise-prototype-after-coach
+DIP-21,"Backend skeleton: FastAPI app, PostgreSQL schema migration, auth/RBAC",Aidyn Zhubanyshev,High,2026-11-28,To do,docker compose up; RBAC tests pass,DIP-21-backend-skeleton:-fastapi-app
+DIP-22,KPI engine with unit tests vs reference dataset,Aidyn Zhubanyshev,High,2026-12-12,To do,z-score error <=0.01; coverage >=80%,DIP-22-kpi-engine-with-unit
+DIP-23,Norm tables for U13-U17 and maturity method decision,Sergey Nurtilek,High,2026-12-05,To do,Norms documented with sources; supervisor sign-off,DIP-23-norm-tables-for-u13-u17
+DIP-24,Recommendation engine with explanations,Aidyn Zhubanyshev,High,2026-12-19,To do,"FR-13, NFR-06 acceptance tests pass",DIP-24-recommendation-engine-with-explanations
+DIP-25,Synthetic data generator and CSV import,Aidyn Zhubanyshev,Medium,2026-12-19,To do,FR-09 acceptance test passes,DIP-25-synthetic-data-generator-and
+DIP-26,"Web client MVP (entry, dashboards, recommendations)",Aidyn Zhubanyshev,High,2027-01-30,To do,Scenarios SC-1..SC-5 runnable,DIP-26-web-client-mvp-entry
+DIP-27,"Field pilot with an academy (consent, anonymised data)",Sergey Nurtilek,High,2027-03-15,To do,Protocol 9.5 executed; M2-M5 computed,DIP-27-field-pilot-with-an
+DIP-28,Evaluation report and thesis text,Sergey Nurtilek,High,2027-04-30,To do,Metrics reported with limitations,DIP-28-evaluation-report-and-thesis
